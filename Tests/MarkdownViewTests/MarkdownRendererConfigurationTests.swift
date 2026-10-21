@@ -29,10 +29,13 @@ struct MarkdownRendererConfigurationTests {
     }
 
     @Test(
-        "Leaves the text color to the platform unless asked",
-        .tags(.configuration, .textColor)
+        "Leaves KaTeX compatibility and the text color off unless asked",
+        .tags(.configuration, .math, .textColor)
     )
-    func leavesTheTextColorToThePlatformUnlessAsked() {
-        #expect(MarkdownRendererConfiguration().textColor == nil)
+    func leavesKaTeXCompatibilityAndTheTextColorOffUnlessAsked() {
+        let configuration = MarkdownRendererConfiguration()
+
+        #expect(!configuration.mathKaTeXCompatibility)
+        #expect(configuration.textColor == nil)
     }
 }

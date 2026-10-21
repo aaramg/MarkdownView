@@ -14,6 +14,7 @@ struct MarkdownRendererConfiguration: Hashable, AllowingModifyThroughKeyPath, Se
     
     var tintColors: [MarkdownTintableComponent : Color] = [:]
     var textColor: Color?
+    var mathKaTeXCompatibility: Bool = false
     var underlineLinks: Bool = false
     var listConfiguration: MarkdownListConfiguration = MarkdownListConfiguration()
 

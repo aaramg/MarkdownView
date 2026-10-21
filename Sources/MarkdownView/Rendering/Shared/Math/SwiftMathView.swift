@@ -43,13 +43,16 @@ struct SwiftMathView: View {
 
     var body: some View {
         let fontSize = font.asPlatformFont.pointSize
+        let typesetEquation = configuration.mathKaTeXCompatibility
+            ? SwiftMathCompatibility.typesettable(equation)
+            : equation
         if let metrics = SwiftMathTypesetting.metrics(
-            for: equation,
+            for: typesetEquation,
             fontSize: fontSize,
             labelMode: labelMode
         ) {
             SwiftMathPlatformView(
-                equation: equation,
+                equation: typesetEquation,
                 fontSize: fontSize,
                 labelMode: labelMode,
                 textAlignment: textAlignment,
