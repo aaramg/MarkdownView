@@ -30,6 +30,7 @@ struct MarkdownViewRenderer: @preconcurrency MarkupVisitor {
         var visitor = self
         return visitor
             .visit(markup)
+            .applyingMarkdownTextColor(configuration.textColor)
             .environment(\.markdownMathContext, mathContext)
             .environment(\.markdownElementRenderers, elementRenderers)
     }
@@ -37,6 +38,7 @@ struct MarkdownViewRenderer: @preconcurrency MarkupVisitor {
     func makeBody(forChildrenOf markup: any Markup) -> some View {
         self
             .descendInto(markup)
+            .applyingMarkdownTextColor(configuration.textColor)
             .environment(\.markdownMathContext, mathContext)
             .environment(\.markdownElementRenderers, elementRenderers)
     }

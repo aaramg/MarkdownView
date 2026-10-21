@@ -13,6 +13,7 @@ struct MarkdownRendererConfiguration: Hashable, AllowingModifyThroughKeyPath, Se
     var componentSpacing: CGFloat = 8
     
     var tintColors: [MarkdownTintableComponent : Color] = [:]
+    var textColor: Color?
     var underlineLinks: Bool = false
     var listConfiguration: MarkdownListConfiguration = MarkdownListConfiguration()
 

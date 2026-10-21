@@ -110,7 +110,7 @@ MarkdownView("Inline math: $E = mc^2$")
     .markdownMathRenderingEnabled()
 ```
 
-Both inline math and display math are supported.
+Both inline math and display math are supported. A formula that SwiftMath can't render is shown as its source.
 
 Math rendering is available on iOS and macOS when the `LaTeX` trait is enabled. The trait is enabled by default.
 
@@ -138,6 +138,13 @@ MarkdownView("> Quote and `inline code`")
 ```
 
 ![](/Images/tint.jpeg)
+
+Set the text color. Inline code and links keep their tint colors. `MarkdownText` doesn't follow `foregroundStyle(_:)`, so use this to color it.
+
+```swift
+MarkdownText(markdownText)
+    .markdownTextColor(.brown)
+```
 
 Set table, block quote, and code block styles.
 
