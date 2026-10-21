@@ -59,6 +59,7 @@ public struct MarkdownText: View {
             )
             .makeTextContent(for: parseResult.document)
         }
+        .environment(\.markdownRendererConfiguration, configuration)
         .environment(\.markdownMathContext, parseResult.mathContext)
         .environment(\.markdownElementRenderers, elementRenderers)
         .environment(\.markdownFontGroup, fonts)
